@@ -1,0 +1,340 @@
+{
+	"info": {
+		"_postman_id": "84c9381c-e6a7-4749-b363-2e2fa5277405",
+		"name": "FamilyTree",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add Person",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "demo",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "qwerty123@",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"first_name\": \"demo\",\n    \"last_name\": \"demo\",\n    \"birth_date\": \"2000-01-01\",\n    \"phone_number\": \"12775775774\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/person/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"person",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Relative",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "demo",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "qwerty123@",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"person\": 22,\n    \"relation\": \"child\",\n    \"relative\": {\n        \"first_name\": \"demo child2\",\n        \"last_name\": \"demo child2\",\n        \"phone_number\": 1234567821,\n        \"birth_date\": \"2000-12-12\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/relation/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"relation",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Person",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "demo",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "qwerty123@",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/person/26/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"person",
+						"26",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Relatives",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "demo",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "qwerty123@",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/relation/26/parent/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"relation",
+						"26",
+						"parent",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Relative",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "demo",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "qwerty123@",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"relation\": \"sibling\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/relation/7/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"relation",
+						"7",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Person",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "demo",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "qwerty123@",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"first_name\": \"demoo\",\n    \"last_name\": \"demoo\",\n    \"phone_number\": 12775775774,\n    \"email_address\": \"\",\n    \"address\": \"\",\n    \"birth_date\": \"2000-01-01T00:00:00Z\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/person/13/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"person",
+						"13",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Person",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "demo",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "qwerty123@",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/person/13/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"person",
+						"13",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Relation",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "demo",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "qwerty123@",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/relation/7/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"relation",
+						"7",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
