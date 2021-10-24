@@ -1,7 +1,16 @@
 from django.core.exceptions import ValidationError
 from rest_framework import serializers
 
-from .models import Person, Relation, RelationEnum
+from .models import Person, Relation, RelationEnum, User
+
+
+RELATIONS = {
+    "sibling": "sibling",
+    "parent": "child",
+    "child": "parent",
+    "grandparent": "grandchild",
+    "cousin": "cousin",
+}
 
 
 class PersonSerializer(serializers.ModelSerializer):
@@ -9,7 +18,16 @@ class PersonSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Person
-        fields = ("first_name", "last_name", "phone_number", "email_address", "address", "birth_date", "added_by")
+        fields = (
+            "id",
+            "first_name",
+            "last_name",
+            "phone_number",
+            "email_address",
+            "address",
+            "birth_date",
+            "added_by",
+        )
 
     def validate_phone_number(self, number):
         if len(str(number)) < 10:
@@ -42,5 +60,19 @@ class RelationSerializer(serializers.ModelSerializer):
         relative = Person.objects.create(**relative_data)
         relation = validated_data.pop("relation")
         person = validated_data.pop("person")
+        Relation.objects.create(person=relative, relative=person, relation=RELATIONS[relation])
         relation = Relation.objects.create(person=person, relative=relative, relation=relation)
         return relation
+
+
+class SignUpSerializer(serializers.ModelSerializer):
+    token = serializers.SlugRelatedField(source="auth_token", slug_field="key", read_only=True)
+
+    class Meta:
+        model = User
+        fields = ("username", "password", "token")
+        extra_kwargs = {"password": {"write_only": True}}
+
+    def create(self, data):
+        user = User.objects.create_user(data["username"], data["password"])
+        return user

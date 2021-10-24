@@ -1,6 +1,7 @@
 from rest_framework.generics import CreateAPIView, DestroyAPIView, ListAPIView, RetrieveAPIView, UpdateAPIView
+from rest_framework.permissions import AllowAny
 
-from .serializers import PersonSerializer, RelationSerializer
+from .serializers import PersonSerializer, RelationSerializer, SignUpSerializer
 from .models import Person, Relation
 
 
@@ -31,3 +32,9 @@ class RelationUpdateAPIView(UpdateAPIView, DestroyAPIView):
     def get_queryset(self):
         user = self.request.user
         return Relation.objects.filter(person__added_by=user)
+
+
+class SignUpAPI(CreateAPIView):
+
+    permission_classes = (AllowAny,)
+    serializer_class = SignUpSerializer

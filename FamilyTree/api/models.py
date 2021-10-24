@@ -35,8 +35,9 @@ class RelationEnum(models.TextChoices):
     SIBLING = "sibling"
     PARENT = "parent"
     CHILD = "child"
-    GRANDPARENT = "grandparent"
     COUSIN = "cousin"
+    GRANDPARENT = "grandparent"
+    GRANDCHILD = "grandchild"
 
 
 class Relation(models.Model):
