@@ -12,4 +12,4 @@ I'll be happy to get comments if someone like to pitch in, contribute, or sugges
 
 ---
 
-_**<center>"Every expert was once beginner"</center>**_
+_**"Every expert was once beginner, KEEP learning."**_
