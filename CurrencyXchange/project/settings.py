@@ -145,5 +145,5 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 # Conversion API
-CONAPI_KEY = "edc90aadaeccf4cd5bf9f299"
+CONAPI_KEY = "dummy_key_eds90eadtecsf4cw5bfef299"
 CONAPI_URL = f"https://v6.exchangerate-api.com/v6/{CONAPI_KEY}/latest/"
